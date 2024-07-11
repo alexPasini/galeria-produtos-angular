@@ -1,0 +1,30 @@
+<div class="mx-auto px-4 py-4 container">
+  <div class="flex flex-wrap -mx-2">
+    <div
+      *ngFor="let product of productsExample"
+      class="p-2 w-full sm:w-1/2 lg:w-1/4"
+    >
+      <div class="flex flex-col shadow-lg p-4 border rounded-lg h-full">
+        <img
+          [src]="product.imageUrl"
+          alt="{{ product.name }}"
+          class="rounded-lg w-full h-80 object-fit"
+        />
+        <h2 class="mt-4 font-semibold text-lg">{{ product.name }}</h2>
+        <p class="mt-auto text-gray-600">Preço: {{ product.price }}</p>
+
+        <p-button
+          class="bg-slate-400 mt-2 px-2 py-2 rounded-lg text-center"
+          label="Adicionar ao carrinho"
+          (onClick)="onAddProduct(product)"
+          [rounded]="true"
+          severity="secondary"
+        />
+
+        <div class="flex justify-end mt-2">
+          <i class="ph-shopping-cart text-xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
