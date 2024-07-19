@@ -1,0 +1,25 @@
+<div *ngIf="product" class="flex flex-col bg-slate-100 p-4 border-none h-full">
+  <img
+    [src]="product.imageUrl"
+    alt="{{ product.name }}"
+    class="group-hover:scale-110 w-full h-80 transform transition-transform duration-300 ease-in-out object-fit"
+  />
+  <div
+    class="absolute inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+  >
+    <h2 class="mt-4 font-semibold text-lg">{{ product.name }}</h2>
+    <p class="mt-auto text-gray-600">Preço: {{ product.price }}</p>
+
+    <p-button
+      class="bg-slate-400 mt-2 px-2 py-2 text-center"
+      label="Adicionar ao carrinho"
+      (onClick)="onAddProduct(product)"
+      [rounded]="true"
+      severity="secondary"
+    />
+
+    <div class="flex justify-end mt-2">
+      <i class="ph-shopping-cart text-xl"></i>
+    </div>
+  </div>
+</div>

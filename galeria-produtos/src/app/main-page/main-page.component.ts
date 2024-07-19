@@ -1,17 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {ButtonModule} from "primeng/button"
+import { ProductCardComponent } from '../product-card/product-card.component';
+import { ProductType } from '../shared/types/card-products.types';
 
-interface ProductType{
-  name:string,
-  price:number,
-  imageUrl:string
-}
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [CommonModule,ButtonModule],
+  imports: [CommonModule,ButtonModule,ProductCardComponent],
   templateUrl: './main-page.component.html',
   
 })
@@ -27,8 +24,7 @@ export class MainPageComponent {
     
   ]
 
-  onAddProduct(product:ProductType){
-    console.log(product.name)
-  }
+ 
+  
 
 }
