@@ -5,3 +5,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+p,
+h1,
+h2,
+input,
+button {
+  font-family: "Space Grotesk", sans-serif;
+}

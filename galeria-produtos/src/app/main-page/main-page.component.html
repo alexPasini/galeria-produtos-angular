@@ -1,13 +1,13 @@
-<div class="px-12 py-4 w-full">
-  <div></div>
+<div class="flex flex-col gap-5 w-full">
+  <app-header></app-header>
 
-  <div class="flex flex-wrap gap-4">
-    <div
-      class="flex-grow"
-      style="flex-basis: calc(20% - 16px)"
-      *ngFor="let product of productsExample"
-    >
-      <app-product-card [product]="product"></app-product-card>
+  <div class="px-12 py-4 w-full">
+    <div></div>
+
+    <div class="gap-4 grid grid-cols-5">
+      <div class="col-span-1" *ngFor="let product of productsExample">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
     </div>
   </div>
 </div>

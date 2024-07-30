@@ -4,20 +4,17 @@ import { ButtonModule } from 'primeng/button';
 import { ProductType} from "../shared/types/card-products.types"
 
 @Component({
-  selector: 'app-product-card',
+  selector: 'app-header',
   standalone: true,
   imports: [ButtonModule,CommonModule],
-  templateUrl: './product-card.component.html',
+  templateUrl: './header.component.html',
   
 })
-export class ProductCardComponent {
+export class HeaderComponent {
 
   @Input() product:ProductType | null =null
-  
 
   onAddProduct(product:ProductType){
     console.log(product.name)
   }
-
- 
 }
