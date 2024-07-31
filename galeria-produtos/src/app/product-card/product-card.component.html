@@ -17,12 +17,18 @@
   </div>
 
   <div class="relative flex w-full">
-    <div class="relative flex flex-col">
+    <div class="relative flex flex-col w-full">
       <p>{{ product.name }}</p>
       <p class="mb-3 transition-opacity duration-300 ease-in-out">
         R$ {{ product.price }}
       </p>
     </div>
-    <i class="ph-shopping-cart-simple ph" style="color: blueviolet"></i>
+
+    <button class="mr-2" (click)="onAddToCartClick()">
+      <i
+        class="ph-shopping-cart-simple ph"
+        style="color: black; font-size: 30px"
+      ></i>
+    </button>
   </div>
 </div>

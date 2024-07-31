@@ -1,12 +1,16 @@
 <div class="flex flex-col gap-5 w-full">
   <app-header></app-header>
+  <app-sidebar-modal [(sidebarVisible)]="sidebarVisible" />
 
   <div class="px-12 py-4 w-full">
     <div></div>
 
     <div class="gap-4 grid grid-cols-5">
       <div class="col-span-1" *ngFor="let product of productsExample">
-        <app-product-card [product]="product"></app-product-card>
+        <app-product-card
+          [product]="product"
+          (productAdded)="onAddedProductToCart($event)"
+        ></app-product-card>
       </div>
     </div>
   </div>
