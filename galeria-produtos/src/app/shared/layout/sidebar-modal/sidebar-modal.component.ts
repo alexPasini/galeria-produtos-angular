@@ -12,6 +12,10 @@ import {SidebarModule } from 'primeng/sidebar';
 })
 export class SideBarModalComponent {
 
-  @Input() sidebarVisible?: boolean=false
+  @Input() sidebarVisible:boolean=false
+
+  constructor() {
+    this.sidebarVisible=true
+  }
 
 }
