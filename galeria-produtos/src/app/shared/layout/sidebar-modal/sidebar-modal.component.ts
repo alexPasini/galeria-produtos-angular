@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Button } from 'primeng/button';
 import {SidebarModule } from 'primeng/sidebar';
 
@@ -13,9 +13,18 @@ import {SidebarModule } from 'primeng/sidebar';
 export class SideBarModalComponent {
 
   @Input() sidebarVisible:boolean=false
+  @Input() titleText:string =''
+  @Output() closedClick = new EventEmitter<void>();
 
   constructor() {
     this.sidebarVisible=true
+  }
+
+  onClosed(){
+
+    this.sidebarVisible=false
+    this.closedClick.emit()
+    //console.log("passei")
   }
 
 }

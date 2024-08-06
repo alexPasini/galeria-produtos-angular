@@ -58,8 +58,14 @@ export class MainPageComponent {
   onAddedProductToCart(product: ProductType) {
     this.cart.push(product);
 
-    console.log(this.cart);
+    //console.log(this.cart);
     this.sidebarVisible = true;
-    console.log("valor:",this.sidebarVisible);
+    //console.log("valor:",this.sidebarVisible);
+  }
+
+  onClosedSideBar(){
+    //console.log("oii")
+    this.sidebarVisible=false;
+    //console.log("valor2",this.sidebarVisible)
   }
 }

@@ -17,7 +17,7 @@ export class ProductCardComponent {
   @Output() productAdded: EventEmitter<ProductType> = new EventEmitter<ProductType>();
 
   onAddProduct(product:ProductType){
-    console.log(product.name)
+    //console.log(product.name)
   }
 
   onAddToCartClick(){

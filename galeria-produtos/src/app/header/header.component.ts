@@ -8,13 +8,13 @@ import { ProductType} from "../shared/types/card-products.types"
   standalone: true,
   imports: [ButtonModule,CommonModule],
   templateUrl: './header.component.html',
-  
+
 })
 export class HeaderComponent {
 
   @Input() product:ProductType | null =null
 
   onAddProduct(product:ProductType){
-    console.log(product.name)
+    //console.log(product.name)
   }
 }
