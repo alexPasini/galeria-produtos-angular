@@ -5,12 +5,23 @@
     (closedClick)="onClosedSideBar()"
     titleText="Carrinho"
   >
-    <div *ngFor="let item of cart"></div>
+    <div *ngFor="let item of cart">
+      <div
+        class="flex justify-between items-center shadow mt-4 p-2 rounded h-24"
+      >
+        <div class="flex items-start gap-2">
+          <img src="./../../assets/media/blusa1.png" alt="" class="h-20" />
+          <div>
+            <h1>{{ item.name }}</h1>
+            <h2>R${{ item.price }}</h2>
+          </div>
+        </div>
+        <button class="mx-2 h-full"><i class="ph-trash ph"></i></button>
+      </div>
+    </div>
   </app-sidebar-modal>
 
   <div class="px-12 py-4 w-full">
-    <div></div>
-
     <div class="gap-4 grid grid-cols-5">
       <div class="col-span-1" *ngFor="let product of productsExample">
         <app-product-card
