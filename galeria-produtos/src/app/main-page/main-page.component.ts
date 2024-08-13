@@ -5,6 +5,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductType } from '../shared/types/card-products.types';
 import { HeaderComponent } from '../header/header.component';
 import { SideBarModalComponent } from '../shared/layout/sidebar-modal/sidebar-modal.component';
+import { CartItemComponent } from '../shared/layout/cart-item/cart-item.component'; // Importar CartItemComponent
 
 @Component({
   selector: 'app-main-page',
@@ -15,6 +16,7 @@ import { SideBarModalComponent } from '../shared/layout/sidebar-modal/sidebar-mo
     ProductCardComponent,
     HeaderComponent,
     SideBarModalComponent,
+    CartItemComponent // Incluir CartItemComponent
   ],
   templateUrl: './main-page.component.html',
 })
@@ -57,15 +59,14 @@ export class MainPageComponent {
 
   onAddedProductToCart(product: ProductType) {
     this.cart.push(product);
-
-    //console.log(this.cart);
     this.sidebarVisible = true;
-    //console.log("valor:",this.sidebarVisible);
   }
 
-  onClosedSideBar(){
-    //console.log("oii")
-    this.sidebarVisible=false;
-    //console.log("valor2",this.sidebarVisible)
+  onRemoveItem(item: ProductType) {
+    this.cart = this.cart.filter(cartItem => cartItem !== item);
+  }
+
+  onClosedSideBar() {
+    this.sidebarVisible = false;
   }
 }
