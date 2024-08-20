@@ -6,6 +6,7 @@ import { ProductType } from '../shared/types/card-products.types';
 import { HeaderComponent } from '../header/header.component';
 import { SideBarModalComponent } from '../shared/layout/sidebar-modal/sidebar-modal.component';
 import { CartItemComponent } from '../shared/layout/cart-item/cart-item.component'; // Importar CartItemComponent
+import { CartItemType } from '../shared/types/cart-item.types';
 
 @Component({
   selector: 'app-main-page',
@@ -21,7 +22,7 @@ import { CartItemComponent } from '../shared/layout/cart-item/cart-item.componen
   templateUrl: './main-page.component.html',
 })
 export class MainPageComponent {
-  cart: ProductType[] = [];
+  cart: CartItemType[] = [];
   sidebarVisible = false;
 
   productsExample: ProductType[] = [
@@ -33,37 +34,61 @@ export class MainPageComponent {
     },
     {
       id: 2,
-      name: 'produto1',
+      name: 'produto2',
       price: 2,
       imageUrl: '../../assets/media/blusa1.png',
     },
     {
       id: 3,
-      name: 'produto1',
+      name: 'produto3',
       price: 2,
       imageUrl: '../../assets/media/blusa1.png',
     },
     {
       id: 4,
-      name: 'produto1',
+      name: 'produto4',
       price: 2,
       imageUrl: '../../assets/media/blusa1.png',
     },
     {
       id: 5,
-      name: 'produto1',
+      name: 'produto5',
       price: 2,
       imageUrl: '../../assets/media/blusa1.png',
     },
   ];
 
+
+  get totalPrice() {
+    return parseFloat(
+      this.cart.reduce((total, cartItem) => {
+        return total + cartItem.product.price * cartItem.quantity;
+      }, 0).toFixed(2)
+    );
+  }
+
+
+
+
   onAddedProductToCart(product: ProductType) {
-    this.cart.push(product);
+
+    const productId = product.id
+
+    const oldProduct = this.cart.find(item=>item.product.id==productId)
+
+    if(oldProduct){
+      oldProduct.quantity+=1
+    }else{
+
+      this.cart.push({product:product,onCart:true,quantity:1});
+    }
+
+
     this.sidebarVisible = true;
   }
 
-  onRemoveItem(item: ProductType) {
-    this.cart = this.cart.filter(cartItem => cartItem !== item);
+  onRemoveItem(item:CartItemType) {
+    this.cart = this.cart.filter(cartItem => cartItem.product.id !== item.product.id);
   }
 
   onClosedSideBar() {

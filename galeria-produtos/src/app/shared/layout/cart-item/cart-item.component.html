@@ -1,10 +1,19 @@
 <div *ngFor="let item of cart">
   <div class="flex justify-between items-center shadow mt-4 p-2 rounded h-24">
     <div class="flex items-start gap-2">
-      <img [src]="item.imageUrl" alt="" class="h-20" />
-      <div>
-        <h1>{{ item.name }}</h1>
-        <h2>R${{ item.price }}</h2>
+      <img [src]="item.product.imageUrl" alt="" class="h-20" />
+      <div class="flex flex-col w-full">
+        <div>
+          <h1>{{ item.product.name }}</h1>
+          <h2>R${{ item.product.price }}</h2>
+        </div>
+
+        <p-inputNumber
+          [(ngModel)]="item.quantity"
+          [showButtons]="true"
+          inputId="stacked"
+          (ngModelChange)="mudanca(item)"
+        />
       </div>
     </div>
     <button class="mx-2 h-full" (click)="removeItem(item)">
