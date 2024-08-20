@@ -13,6 +13,8 @@
           [showButtons]="true"
           inputId="stacked"
           (ngModelChange)="mudanca(item)"
+          min="1"
+          (keyup)="onQuantityChange($event, item)"
         />
       </div>
     </div>

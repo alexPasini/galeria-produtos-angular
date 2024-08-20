@@ -7,6 +7,7 @@ import { HeaderComponent } from '../header/header.component';
 import { SideBarModalComponent } from '../shared/layout/sidebar-modal/sidebar-modal.component';
 import { CartItemComponent } from '../shared/layout/cart-item/cart-item.component'; // Importar CartItemComponent
 import { CartItemType } from '../shared/types/cart-item.types';
+import { WhatsappButtonComponent } from '../shared/layout/whatsapp-button/whatsapp-button.component';
 
 @Component({
   selector: 'app-main-page',
@@ -17,6 +18,7 @@ import { CartItemType } from '../shared/types/cart-item.types';
     ProductCardComponent,
     HeaderComponent,
     SideBarModalComponent,
+    WhatsappButtonComponent,
     CartItemComponent // Incluir CartItemComponent
   ],
   templateUrl: './main-page.component.html',

@@ -20,7 +20,22 @@ export class CartItemComponent {
     this.itemRemoved.emit(item);
   }
 
+  findCartItem(item:CartItemType){
+    return this.cart.find(item_element=> item_element.product.id==item.product.id )
+  }
+
   mudanca(item:CartItemType){
     console.log(item)
+  }
+
+  onQuantityChange(event:any,item:CartItemType){
+    item.quantity = item.quantity >0? item.quantity : 1
+
+    let itemFinded = this.findCartItem(item)
+    if (itemFinded){
+
+      itemFinded.quantity=item.quantity
+    }
+    return itemFinded
   }
 }

@@ -13,14 +13,13 @@
         ></app-cart-item>
       </div>
 
-      <div class="flex flex-col justify-center content-start border">
-        <div>
-          Total: R$ {{ totalPrice | currency : "BRL" : "symbol" : "1.2-2" }}
+      <div class="flex flex-col justify-center content-start">
+        <div class="mb-4">
+          <p class="font-semibold text-slate-600 text-xl">
+            Total: R$ {{ totalPrice | currency : "BRL" : "symbol" : "1.2-2" }}
+          </p>
         </div>
-        <!-- <div>
-          Total:
-          {{ totalPrice | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
-        </div> -->
+        <app-whatsapp-button />
       </div>
     </div>
   </app-sidebar-modal>
