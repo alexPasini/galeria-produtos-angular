@@ -19,7 +19,7 @@
             Total: R$ {{ totalPrice | currency : "BRL" : "symbol" : "1.2-2" }}
           </p>
         </div>
-        <app-whatsapp-button />
+        <app-whatsapp-button [items]="this.cart" />
       </div>
     </div>
   </app-sidebar-modal>
