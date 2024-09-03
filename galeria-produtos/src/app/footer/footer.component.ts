@@ -4,12 +4,12 @@ import { ButtonModule } from 'primeng/button';
 import { ProductType } from '../shared/types/card-products.types';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-footer',
   standalone: true,
   imports: [ButtonModule, CommonModule],
-  templateUrl: './header.component.html',
+  templateUrl: './footer.component.html',
 })
-export class HeaderComponent {
+export class FooterComponent {
 
   @Input() quantityOnCart: number = 0;
   @Output() buttonCartClicked:  EventEmitter<boolean> = new EventEmitter<boolean>();
