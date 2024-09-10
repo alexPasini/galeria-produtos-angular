@@ -37,6 +37,7 @@ export class WhatsappButtonComponent {
       *Produto ${i+1}*\n
       *ID* ${item.product.id}
       *Quantidade* ${item.quantity}
+      *Tamanho* ${item.product.size}
       *Preco Unidade* R$ ${item.product.price}
 
       ======================

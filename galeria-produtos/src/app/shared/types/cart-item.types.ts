@@ -1,7 +1,7 @@
-import { ProductType } from './card-products.types';
+import { ProductType, ProductTypeSelected } from './card-products.types';
 
 export interface CartItemType{
-  product : ProductType
+  product : ProductTypeSelected
   onCart:boolean
   quantity:number
 }

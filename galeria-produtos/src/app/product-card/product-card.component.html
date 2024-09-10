@@ -36,7 +36,19 @@
       </p>
     </div>
 
-    <button class="mr-2" (click)="onAddToCartClick()">
+    <p-dropdown
+      class="border-white"
+      [options]="sizeOptions"
+      [(ngModel)]="selectedSize"
+      optionLabel="label"
+      placeholder="Escolha o tamanho"
+    />
+
+    <button
+      class="mr-2"
+      [disabled]="!addButtonActive"
+      (click)="onAddToCartClick()"
+    >
       <i
         class="ph-shopping-cart-simple ph"
         style="color: black; font-size: 30px"

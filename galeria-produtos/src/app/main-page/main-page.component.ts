@@ -2,13 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { ProductType } from '../shared/types/card-products.types';
+import { ProductType, ProductTypeSelected } from '../shared/types/card-products.types';
 import { HeaderComponent } from '../header/header.component';
 import { SideBarModalComponent } from '../shared/layout/sidebar-modal/sidebar-modal.component';
 import { CartItemComponent } from '../shared/layout/cart-item/cart-item.component';
 import { CartItemType } from '../shared/types/cart-item.types';
 import { WhatsappButtonComponent } from '../shared/layout/whatsapp-button/whatsapp-button.component';
-import { fromEvent } from 'rxjs';
 import { FooterComponent } from '../footer/footer.component';
 
 @Component({
@@ -111,7 +110,7 @@ export class MainPageComponent {
 
   }
 
-  onAddedProductToCart(product: ProductType) {
+  onAddedProductToCart(product: ProductTypeSelected) {
     const productId = product.id;
 
     const oldProduct = this.cart.find(item => item.product.id === productId);
@@ -122,7 +121,6 @@ export class MainPageComponent {
       this.cart.push({ product, onCart: true, quantity: 1 });
     }
 
-    // this.sidebarVisible = true;
   }
 
   onRemoveItem(item: CartItemType) {
