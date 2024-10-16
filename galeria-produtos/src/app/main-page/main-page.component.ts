@@ -1,3 +1,4 @@
+
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
@@ -111,6 +112,7 @@ export class MainPageComponent {
   }
 
   onAddedProductToCart(product: ProductTypeSelected) {
+
     const productId = product.id;
 
     const oldProduct = this.cart.find(item => item.product.id === productId);
@@ -120,7 +122,6 @@ export class MainPageComponent {
     } else {
       this.cart.push({ product, onCart: true, quantity: 1 });
     }
-
   }
 
   onRemoveItem(item: CartItemType) {
@@ -133,5 +134,6 @@ export class MainPageComponent {
 
   buttonCartClicked(){
     this.sidebarVisible=true
+
   }
 }

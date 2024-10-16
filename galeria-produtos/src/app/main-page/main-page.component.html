@@ -1,45 +1,47 @@
-<div class="flex flex-col gap-5 w-full">
-  <app-header
-    [quantityOnCart]="TotalQuantity"
-    (buttonCartClicked)="buttonCartClicked()"
-  ></app-header>
+<div class="overflow-x-hidden">
+  <div class="flex flex-col gap-4 w-full">
+    <app-header
+      [quantityOnCart]="TotalQuantity"
+      (buttonCartClicked)="buttonCartClicked()"
+    ></app-header>
 
-  <app-sidebar-modal
-    [sidebarVisible]="sidebarVisible"
-    (closedClick)="onClosedSideBar()"
-    titleText="Carrinho"
-  >
-    <div class="flex flex-col justify-between w-full h-full">
-      <div class="flex flex-col w-full">
-        <app-cart-item
-          [cart]="cart"
-          (itemRemoved)="onRemoveItem($event)"
-        ></app-cart-item>
-      </div>
-
-      <div class="flex flex-col justify-start items-center w-full">
-        <div class="mb-4">
-          <p class="font-semibold text-slate-600 text-xl">
-            Total: R$ {{ totalPrice | currency : "BRL" : "symbol" : "1.2-2" }}
-          </p>
+    <app-sidebar-modal
+      [sidebarVisible]="sidebarVisible"
+      (closedClick)="onClosedSideBar()"
+      titleText="Carrinho"
+    >
+      <div class="flex flex-col justify-between w-full h-full">
+        <div class="flex flex-col w-full">
+          <app-cart-item
+            [cart]="cart"
+            (itemRemoved)="onRemoveItem($event)"
+          ></app-cart-item>
         </div>
 
-        <app-whatsapp-button [items]="cart" />
-      </div>
-    </div>
-  </app-sidebar-modal>
+        <div class="flex flex-col justify-start items-center w-full">
+          <div class="mb-4">
+            <p class="font-semibold text-slate-600 text-xl">
+              Total: R$ {{ totalPrice | currency : "BRL" : "symbol" : "1.2-2" }}
+            </p>
+          </div>
 
-  <div
-    class="flex justify-center sm:px-6 md:px-8 lg:px-12 py-2 sm:py-3 md:py-4 lg:py-6 w-full"
-  >
-    <div class="gap-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-      <div class="col-span-1" *ngFor="let product of productsExample">
-        <app-product-card
-          [product]="product"
-          (productAdded)="onAddedProductToCart($event)"
-        ></app-product-card>
+          <app-whatsapp-button [items]="cart" />
+        </div>
+      </div>
+    </app-sidebar-modal>
+
+    <div
+      class="flex justify-center sm:px-6 md:px-8 lg:px-12 py-2 sm:py-3 md:py-4 lg:py-6 w-full"
+    >
+      <div class="gap-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div class="col-span-1" *ngFor="let product of productsExample">
+          <app-product-card
+            [product]="product"
+            (productAdded)="onAddedProductToCart($event)"
+          ></app-product-card>
+        </div>
       </div>
     </div>
+    <app-footer />
   </div>
-  <app-footer />
 </div>

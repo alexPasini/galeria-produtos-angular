@@ -5,12 +5,15 @@ import { ProductType, ProductTypeSelected} from "../shared/types/card-products.t
 import { GalleriaModule } from 'primeng/galleria';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [ButtonModule,CommonModule,GalleriaModule,DropdownModule,FormsModule],
+  imports: [ButtonModule,CommonModule,GalleriaModule,DropdownModule,FormsModule,ToastModule],
   templateUrl: './product-card.component.html',
+  providers:[MessageService]
 
 })
 export class ProductCardComponent {
@@ -40,6 +43,7 @@ export class ProductCardComponent {
         numVisible: 1
     }
 ];
+  constructor(private messageService: MessageService){}
 
   onAddProduct(product:ProductType){
     //console.log(product.name)
@@ -53,12 +57,21 @@ export class ProductCardComponent {
   }
 
   onAddToCartClick() {
-    console.log(this.selectedSize.label,"tamahooo")
+
     if (this.product && this.selectedSize.label) {
       const productSelected: ProductTypeSelected = { ...this.product, size: this.selectedSize.label };
       this.productAdded.emit(productSelected);
     }
+
+    if (!this.selectedSize.label){
+      this.show()
+    }
   }
+
+
+  show() {
+    this.messageService.add({ severity: 'error', summary: '', detail: 'Escolha o tamnho antes de adicionar' });
+}
 
 
 }
